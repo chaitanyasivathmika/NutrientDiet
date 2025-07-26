@@ -1,0 +1,5 @@
+package com.nutridiet.project.repository;
+
+public class AdminRepository {
+
+}

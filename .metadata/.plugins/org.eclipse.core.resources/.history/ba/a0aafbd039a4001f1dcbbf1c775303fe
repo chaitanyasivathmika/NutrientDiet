@@ -1,0 +1,6 @@
+package com.nutridiet.project.service;
+
+public interface NutritionistService
+{
+	public String NutritionistRegistration()
+}

@@ -1,0 +1,69 @@
+package com.nutridiet.project.service;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nutridiet.project.model.Admin;
+import com.nutridiet.project.model.User;
+import com.nutridiet.project.repository.AdminRepository;
+import com.nutridiet.project.repository.UserRepository;
+
+
+
+@Service
+public class AdminServiceImpl implements AdminService
+{
+
+	@Autowired 
+	private UserRepository userRepository;
+
+	@Autowired
+	private AdminRepository adminRepository;
+	
+	
+	@Override
+	public List<User> ViewAllUsers() {
+		return employeeRepository.findAll();
+	}
+
+	@Override
+	public Admin checkadminlogin(String uname, String pwd) {
+		return adminRepository.checkadminlogin(uname, pwd);
+	}
+
+	@Override
+	public String deleteemp(int eid) 
+	{
+		employeeRepository.deleteById(eid);
+		return "Employee Deleted Successfully";
+	}
+
+	@Override
+	public Employee displayempbyId(int eid) {
+		return employeeRepository.findById(eid).get();
+		
+	}
+
+	@Override
+	public long empcount() {
+		return employeeRepository.count();
+	}
+
+	@Override
+	public String updateempstatus(String status, int eid) {
+		 employeeRepository.updateempstatus(status, eid);
+		 return "Employee Status updated Successfully";
+	}
+
+	@Override
+	public String addCustomer(Customer c)
+	{
+		customerRepository.save(c);
+		return "Customer Added Successfully";
+	}
+	
+	
+}

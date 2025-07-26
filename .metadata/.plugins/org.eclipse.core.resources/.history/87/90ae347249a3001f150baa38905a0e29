@@ -1,0 +1,5 @@
+package com.nutridiet.project.model;
+
+public class Admin {
+
+}

@@ -1,0 +1,209 @@
+<%-- <%@ page import="com.nutridiet.project.model.User"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%
+User user = (User) session.getAttribute("user");
+if (user == null) {
+    response.sendRedirect("timeout");
+    return;
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Profile</title>
+</head>
+<style>
+    /* Styling as per your design */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #e9dac1, #f4ecd8, #dac3b3);
+        color: #4a403a;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-size: 200% 200%;
+        animation: backgroundAnimation 12s ease infinite;
+    }
+
+    @keyframes backgroundAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #5a4d44;
+        font-size: 34px;
+        text-align: center;
+        text-shadow: 0 0 8px rgba(90, 77, 68, 0.2);
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        padding: 12px 24px;
+        color: #f4ecd8;
+        font-weight: bold;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #a67f60;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease-in-out;
+        cursor: pointer;
+    }
+
+    .navbar a:hover {
+        color: #dac3b3;
+        background-color: #c49782;
+        box-shadow: 0 0 10px 3px rgba(196, 151, 130, 0.4);
+        transform: translateY(-4px);
+    }
+
+    .content {
+        padding: 20px;
+        margin-top: 20px;
+        width: 80%;
+        max-width: 600px;
+        background-color: #e5d2c2;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        color: #4a403a;
+        font-size: 16px;
+        text-align: center;
+    }
+</style>
+
+<body>
+  <h3 style="text-align: center;"><u>My Profile</u></h3>
+
+<div style="text-align: center;">
+    <b>ID:</b><%= user.getId() %><br><br>
+    <b>EMAIL:</b><%= user.getUemail() %><br><br>
+    <b>NAME:</b><%= user.getUusername() %><br><br>
+    <b>GENDER:</b><%= user.getUgender() %><br><br>
+    <b>DATE OF BIRTH:</b><%= user.getUage() %><br><br>
+    <b>CONTACT:</b><%= user.getUcontact() %><br><br>
+    <b>ROLE:</b><%= user.getUrole() %><br><br>
+    <b>PASSWORD:</b><%= user.getUpassword() %><br><br>
+</div>
+
+</body>
+</html>
+ --%>
+ 
+ 
+ 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.nutridiet.project.model.User"%>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user == null) {
+        out.println("Session expired or user attribute not set.");
+        response.sendRedirect("timeout");
+        return;
+    }
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <style>
+        /* Basic styling for the profile page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-item {
+            margin: 10px 0;
+        }
+        .profile-label {
+            font-weight: bold;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .actions a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .actions a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <h2>User Profile</h2>
+    </div>
+
+    <!-- Display user information if available -->
+    <c:choose>
+        <c:when test="${not empty user}">
+            <div class="profile-item">
+                <span class="profile-label">ID:</span> ${user.id}
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">Name:</span> ${user.uusername}
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">Email:</span> ${user.uemail}
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">Date of Birth:</span> ${user.uage}
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">Gender:</span> ${user.ugender}
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">Contact:</span> ${user.ucontact}
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">Role:</span> ${user.urole}
+            </div>
+        </c:when>
+        <c:otherwise>
+            <p>No user information available. Please log in.</p>
+        </c:otherwise>
+    </c:choose>
+
+    <!-- Links for Edit Profile and Back to Home -->
+    <div class="actions">
+        <a href="usersettings">Edit Profile</a> | <a href="home">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<%@ page contentType="text/html; charset=ISO-8859-1" isELIgnored="false"%> 
+<%@ taglib uri="jakarta.tags.core" prefix="c"%> 
+ 
+<html> 
+
+<head> 
+<title>View All</title>
+</head> 
+
+<body>
+
+<%@include file="adminnavbar.jsp" %>
+
+<br><br><br>
+
+<table align="center" border="2" style="text-align: center">
+  
+<tr style="font-weight: bold;"> 
+<td>Id</td>
+<td>UserName</td> 
+<td>Email</td> 
+<td>Password</td> 
+<td>Age</td> 
+<td>Gender</td> 
+<td>Role</td> 
+<td>Contact</td>
+<td>Body Type</td>  
+</tr> 
+ 
+<c:forEach items="${userlist}" var="userlist"> 
+
+<tr>
+<td><c:out value="${userlist.id}" /></td>
+<td><c:out value="${userlist.uusername}" /></td> 
+<td><c:out value="${userlist.uemail}" /></td> 
+<td><c:out value="${userlist.upassword}" /></td>
+<td><c:out value="${userlist.uage}" /></td> 
+<td><c:out value="${userlist.ugender}" /></td> 
+<td><c:out value="${userlist.urole}" /></td> 
+<td><c:out value="${userlist.ucontact}" /></td> 
+<td><c:out value="${userlist.ubodytype}" /></td>
+</tr> 
+
+</c:forEach> 
+ 
+</table> 
+
+</body> 
+</html>

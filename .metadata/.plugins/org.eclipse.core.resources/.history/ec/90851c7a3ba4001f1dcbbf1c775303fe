@@ -1,0 +1,10 @@
+package com.nutridiet.project.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.nutridiet.project.model.Nutritionist;
+
+public interface NutritionistRepository extends JpaRepository<Nutritionist, Integer>
+{
+	public Nutritionist checknutrilogin(String nemail,String )
+}

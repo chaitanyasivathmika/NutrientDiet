@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\DietNutritient\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3749738771.index
+58812415.index
+912282673.index
+2124821934.index
+869185554.index
+3395841499.index
+653287418.index

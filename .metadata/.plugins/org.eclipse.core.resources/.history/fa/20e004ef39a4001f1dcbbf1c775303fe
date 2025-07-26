@@ -1,0 +1,17 @@
+package com.nutridiet.project.service;
+
+import org.springframework.stereotype.Service;
+
+import com.nutridiet.project.model.Nutritionist;
+
+@Service
+public class NutritionistServiceImpl implements NutritionistService
+{
+
+	@Override
+	public String NutritionistRegistration(Nutritionist n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

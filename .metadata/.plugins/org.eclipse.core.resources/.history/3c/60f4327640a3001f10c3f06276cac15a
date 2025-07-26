@@ -1,0 +1,25 @@
+package com.nutridiet.project.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.nutridiet.project.model.User;
+
+import jakarta.transaction.Transactional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer>
+{
+	@Query("select u from User u where u.uemail=?1 and u.upassword=?2")
+	public User checkemplogin(String email,String pwd);	
+	
+	@Query("update User u set u.uage=?1, u.uusername=?2, u.upassword=?3, u.ugender=?4, u.urole=?5, u.ucontact=?6 where u.id=?7")
+	@Modifying
+	@Transactional
+	public int updateUserDetails(String uage, String uname, String upassword, String ugender, String urole, String ucontact, int id);
+
+	
+
+}

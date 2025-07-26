@@ -1,0 +1,97 @@
+package com.nutridiet.project.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.nutridiet.project.model.Nutritionist;
+import com.nutridiet.project.model.User;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class NutritionistController
+{
+
+	
+	@GetMapping("nutrireg")
+	public ModelAndView nutrireg()
+	{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("nutrireg");
+		return mv;
+	}
+	
+	@GetMapping("nutrilogin")
+	public ModelAndView nutrilogin()
+	{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("nutrilogin");
+		return mv;
+	}
+	
+	@PostMapping("insertuser")
+	public ModelAndView insertemp(HttpServletRequest request)
+	{
+		String nname = request.getParameter("nname");
+		String nemail = request.getParameter("nemail");	  
+		String nage = request.getParameter("nage");
+	    String ncontact=request.getParameter("ncontact");
+	    String nspecification = request.getParameter("nspecification");	    
+	    String nexperience = request.getParameter("nexperience");
+	    String neducation=request.getParameter("neducation");
+	    String npassword=request.getParameter("npassword");
+	    
+	    Nutritionist nutri = new Nutritionist();
+	    
+	    nutri.setNname(nname);;
+	    nutri.set;
+	    nutri.setUpassword(upassword);
+	    nutri.setUage(uage);
+	    nutri.setUrole(urole);
+	    nutri.setUcontact(ucontact);
+	    nutri.setUgender(ugender);
+	    nutri.setUbodytype(ubodytype);
+	      
+	    String msg = userService.UserRegistration(user);
+	    
+	    ModelAndView mv = new ModelAndView("regsuccess");
+	    mv.addObject("message", msg);
+	    return mv;
+
+	   }
+	
+	
+	@PostMapping("checkuserlogin")
+	public ModelAndView checkuserlogin(HttpServletRequest request) {
+	    ModelAndView mv = new ModelAndView();
+
+	    String uemail = request.getParameter("uemail");
+	    String upwd = request.getParameter("upwd");
+
+	    User user = userService.checkuserlogin(uemail, upwd);
+
+	    if (user != null) {
+	        HttpSession session = request.getSession(); 
+	        session.setAttribute("user", user);         
+	        mv.setViewName("userhome");                 
+	    } else {
+	        mv.setViewName("userlogin");                
+	        mv.addObject("message", "Wrong Credentials Used");
+	    }
+
+	    return mv;
+	}
+
+	
+	@GetMapping("nutrihome")
+	public ModelAndView nutrihome()
+	{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("nutrihome");
+		return mv;
+	}
+
+}

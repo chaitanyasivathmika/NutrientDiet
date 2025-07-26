@@ -1,0 +1,3 @@
+INDEX VERSION 1.134
+D:\DietNutritient\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\869185554.index
+\NutrientDiet\src\main\java

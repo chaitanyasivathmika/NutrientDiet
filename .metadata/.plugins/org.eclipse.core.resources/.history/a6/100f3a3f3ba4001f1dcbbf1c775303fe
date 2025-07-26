@@ -1,0 +1,26 @@
+package com.nutridiet.project.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nutridiet.project.model.Nutritionist;
+import com.nutridiet.project.repository.NutritionistRepository;
+
+@Service
+public class NutritionistServiceImpl implements NutritionistService
+{
+	@Autowired
+	private NutritionistRepository nutritionistRepository;
+
+	@Override
+	public String NutritionistRegistration(Nutritionist n) {
+		nutritionistRepository.save(n);
+		return "Nutritionist Added Successfully";
+	}
+
+	@Override
+	public String checknutrilogin(String nemail, String npwd) {
+		return nutritionistRepository.checkemplogin(nemail, npassword);
+	}
+	
+}

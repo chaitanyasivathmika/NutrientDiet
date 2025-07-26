@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Navbar</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Navbar Container (Bottom Bar) */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: #888888; /* Soft Grey Background for Navbar */
+            padding: 10px 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        /* Flip Containers */
+        .flip-container {
+            perspective: 1000px;
+        }
+
+        /* Flip Card */
+        .flip-card {
+            width: 100px;
+            height: 60px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .flip-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        /* Front and Back Faces */
+        .flip-front,
+        .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Front Face */
+        .flip-front {
+            background-color: #d0d0d0; /* Light Grey */
+            color: #2c2f33; /* Dark Text */
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Back Face */
+        .flip-back {
+            background-color: #f1f1f1; /* Off-White */
+            color: #2c2f33;
+            transform: rotateY(180deg);
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hover Effects on Flip Cards */
+        .flip-card:hover .flip-front {
+            background-color: #b0b0b0; /* Darker grey for hover effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card:hover .flip-back {
+            background-color: #e0e0e0; /* Lighter grey for back hover effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ensure the entire flip card is clickable */
+        .flip-card a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .flip-back a {
+            color: #2c2f33;
+            font-weight: bold;
+        }
+
+        .flip-back a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Adjustments */
+        .content {
+            padding: 20px;
+            margin-bottom: 100px; /* Leaves space for the navbar */
+        }
+
+        /* Page Header */
+        h2 {
+            text-align: center;
+            color: #4f5359;
+            margin-top: 20px;
+        }
+
+        /* Logout Button Styling */
+        .flip-container.logout .flip-card {
+            width: 120px; /* Slightly wider to accommodate logout label */
+        }
+
+        .flip-container.logout .flip-front {
+            background-color: #c7c7c7; /* Light Grey */
+        }
+
+        .flip-container.logout .flip-back {
+            background-color: #e0e0e0; /* Slightly Lighter Grey for Back Face */
+        }
+
+    </style>
+</head>
+<body>
+    <h2 align="center">NutriScout</h2>
+    <div class="navbar">
+        <div class="flip-container">
+            <div class="flip-card">
+                <a href="adminhome">
+                    <div class="flip-front">Home</div>
+                    <div class="flip-back">Go to Home</div>
+                </a>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <a href="viewallusers">
+                    <div class="flip-front">View All User</div>
+                    <div class="flip-back">View All</div>
+                </a>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <a href="deleteuser">
+                    <div class="flip-front">Delete User</div>
+                    <div class="flip-back">Delete User</div>
+                </a>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <a href="adduser">
+                    <div class="flip-front">Add User</div>
+                    <div class="flip-back">Add User</div>
+                </a>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <a href="viewbybodytype">
+                    <div class="flip-front">View by Body Type</div>
+                    <div class="flip-back">View Body Type</div>
+                </a>
+            </div>
+        </div>
+        <!-- Logout Button -->
+        <div class="flip-container logout">
+            <div class="flip-card">
+                <a href="adminlogin">
+                    <div class="flip-front">Logout</div>
+                    <div class="flip-back">Logout</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

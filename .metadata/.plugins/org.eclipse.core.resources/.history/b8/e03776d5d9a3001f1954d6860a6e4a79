@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Navbar</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+    /* Navbar Container */
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 220px;
+        background-color: #2c2f33; /* Neutral dark tone */
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navbar Flip Containers */
+    .flip-container {
+        perspective: 1000px;
+        margin-bottom: 20px;
+    }
+
+    /* Flip Card */
+    .flip-card {
+        width: 100%;
+        height: 60px;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .flip-card:hover {
+        transform: rotateY(180deg);
+    }
+
+    /* Front and Back Faces */
+    .flip-front,
+    .flip-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+    /* Front Face */
+    .flip-front {
+        background-color: #4f5359; /* Neutral mid-tone */
+        color: #ffffff;
+        z-index: 2;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Back Face */
+    .flip-back {
+        background-color: #d9d9d9; /* Neutral light tone */
+        color: #2c2f33;
+        transform: rotateY(180deg);
+        z-index: 1;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Back Face Links */
+    .flip-back a {
+        color: #2c2f33;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .flip-back a:hover {
+        text-decoration: underline;
+    }
+
+    /* Logout Button */
+    .navbar a:last-child {
+        margin-top: auto;
+        text-align: center;
+        background-color: #4f5359; /* Neutral tone */
+        color: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .navbar a:last-child:hover {
+        background-color: #3a3d42;
+        transform: scale(1.1);
+    }
+
+    /* Ensure Content Outside Navbar is Not Overlaid */
+    body {
+        margin-left: 240px;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333333;
+    }
+
+    /* Page Header */
+    h2 {
+        text-align: center;
+        color: #4f5359;
+        margin-top: 20px;
+    }
+</style>
+
+</head>
+<body>
+    <h2 align="center">NutriScout</h2>
+    <div class="navbar">
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-front">Home</div>
+                <div class="flip-back"><a href="adminhome">Go to Home</a></div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-front">View All User</div>
+                <div class="flip-back"><a href="viewallusers">View All</a></div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-front">Delete User</div>
+                <div class="flip-back"><a href="deleteuser">Delete User</a></div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-front">Add User</div>
+                <div class="flip-back"><a href="adduser">Add User</a></div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-front">View by Body Type</div>
+                <div class="flip-back"><a href="viewbybodytype">View Body Type</a></div>
+            </div>
+        </div>
+        <a href="adminlogin">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up(Nutritionist) - NutriScout</title>
+    <style>
+        /* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #0062cc;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Signup Form */
+main {
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.signup-form h2 {
+    font-size: 28px;
+    color: #0062cc;
+    margin-bottom: 20px;
+}
+
+.signup-form p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.signup-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-form label {
+    font-size: 16px;
+    text-align: left;
+    color: #333;
+}
+
+.signup-form input, .signup-form select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-form input:focus, .signup-form select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.back-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #c82333;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #0062cc;
+    color: white;
+    margin-top: 50px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo">
+                <h1>NutriScout</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="signup-form">
+            <h2>Sign Up(Nutritionist)</h2>
+            <p>Join NutriScout to help analyze dietary habits and detect nutrient deficiencies, particularly in children and adolescents.</p>
+
+            <form method="post" action="insertuser"> <!-- forced mapping/ method in the contoller -->
+            <table>
+               <tr>
+                    <td><label for="nname">Enter Name</label></td>
+                    <td><input type="text" id="nname" name="nname" required placeholder="Nutritionist name"/></td>
+                </tr>
+                <tr>
+                    <td><label for="nemail">Enter Email ID</label></td>
+                    <td><input type="email" id="nemail" name="nemail" required placeholder="Nutritionist email"/></td>
+                </tr>
+                <tr>
+                    <td><label for="nage">Enter Age</label></td>
+                    <td><input type="date" id="nage" name="nage" required placeholder="Nutritionist age"/></td>
+                </tr>
+                <tr>
+                    <td><label for="ncontact">Enter Contact</label></td>
+                    <td><input type="number" id="ncontact" name="ncontact" required placeholder="Nutritionist Contact No"/></td>
+                </tr>
+                 <tr>
+                    <td><label>Specification</label></td>
+                    <td>
+                        <select id="nspecification" name="nspecification" required>
+                        	<option value="">---select---</option>
+                            <option value="general">General(Overall)</option>
+                            <option value="cardiac">Cardiac</option>
+                            <option value="sportsnutritionist">Sports Nutrtionist</option>
+                            <option value="child">Child</option>
+                            <option value="aged">Aged</option>
+                        </select>
+                    </td>
+                </tr>
+                 <tr>
+                    <td><label for="nexperience">Enter Experience</label></td>
+                    <td><input type="text" id="nexperience" name="nexperience" required placeholder="Nutritionist Experience"/></td>
+                </tr>
+                <tr>
+                    <td><label for="neducation">Enter Password</label></td>
+                    <td><input type="text" id="neducation" name="neducation" required placeholder="Nutritionist Experience"/></td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td colspan="2" class="button-container">
+                        <input type="submit" value="Register"/>
+                        <input type="reset" value="Clear"/>
+                    </td>
+                </tr>
+            </table>
+        </form>   
+
+            <a href="/">Back</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 DietAnalyzer - All Rights Reserved</p>
+    </footer>
+</body>
+</html>

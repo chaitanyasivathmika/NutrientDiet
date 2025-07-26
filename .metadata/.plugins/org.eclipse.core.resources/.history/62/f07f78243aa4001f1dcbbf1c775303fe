@@ -1,0 +1,6 @@
+package com.nutridiet.project.repository;
+
+public interface NutritionistRepository
+{
+
+}
